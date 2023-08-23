@@ -1,3 +1,0 @@
-rob,groen
-lyke,groen
-robbert,rood
