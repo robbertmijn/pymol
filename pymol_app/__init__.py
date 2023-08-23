@@ -2,4 +2,4 @@
 
 __version__ = '0.1'
 
-from pymol._molfuncs import interpolate_color, pulse_screen
+from pymol_app._molfuncs import interpolate_color, pulse_screen

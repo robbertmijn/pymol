@@ -15,12 +15,9 @@ dynamic = ["version", "description"]
 dependencies = [
     "pygame",
     "numpy",
-    "math",
-    "csv",
-    "random"
 ]
 [project.script]
-pymol = "pymol._app:app"
+pymol = "pymol_app._app:app"
 [project.urls]
 Documentation = "https://github.com/robbertmijn/pymol"
 Source = "https://github.com/robbertmijn/pymol"
