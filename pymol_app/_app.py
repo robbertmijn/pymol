@@ -8,7 +8,7 @@ from pymol_app._molfuncs import *
 def app():
 
 	parser = argparse.ArgumentParser()
-	parser.add_argument("--file", default='eliminatie_1.csv', help="The path to the dragged file")
+	parser.add_argument("file", default='eliminatie_1.csv', nargs="?", help="The path to the dragged file")
 	args = parser.parse_args()
 
 	with open(args.file, 'r') as file:
@@ -35,6 +35,10 @@ def app():
 				pygame.quit()
 		
 			if event.type == pygame.KEYDOWN:
+				
+				if state == 'reveal':
+					state = 'input'
+					user_text = ''
 
 				if event.key == pygame.K_ESCAPE:
 					pygame.quit()
@@ -44,11 +48,7 @@ def app():
 					
 				elif event.key == pygame.K_RETURN:
 					
-					if state == 'reveal':
-						state = 'input'
-						user_text = ''
-
-					elif user_text in list(kandidaten.keys()):
+					if user_text in list(kandidaten.keys()):
 						state = 'suspense'
 					else:
 						user_text = ''
