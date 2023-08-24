@@ -16,7 +16,7 @@ dependencies = [
     "pygame",
     "numpy",
 ]
-[project.script]
+[project.scripts]
 pymol = "pymol_app._app:app"
 [project.urls]
 Documentation = "https://github.com/robbertmijn/pymol"
