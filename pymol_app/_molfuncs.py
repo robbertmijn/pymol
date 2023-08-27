@@ -4,8 +4,10 @@ import pygame
 import random
 import math
 
+
 def interpolate_color(color1, color2, t):
     return tuple(int(c1 + (c2 - c1) * t) for c1, c2 in zip(color1, color2))
+
 
 def pulse_screen(screen, clock):
 
@@ -41,3 +43,34 @@ def pulse_screen(screen, clock):
 
 		# Cap the frame rate
 		clock.tick(60)
+
+
+def check_input(state, user_text, kandidaten):
+
+	for event in pygame.event.get():
+				if event.type == pygame.QUIT:
+					pygame.quit()
+			
+				if event.type == pygame.KEYDOWN:
+					
+					if state == 'reveal':
+						state = 'input'
+						user_text = ''
+
+					if event.key == pygame.K_ESCAPE:
+						pygame.quit()
+
+					if event.key == pygame.K_BACKSPACE:
+						user_text = user_text[:-1]
+						
+					elif event.key == pygame.K_RETURN:
+						
+						if user_text in list(kandidaten.keys()):
+							state = 'suspense'
+						else:
+							user_text = ''
+
+					else:
+						user_text += event.unicode
+	
+	return state, user_text
